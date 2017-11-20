@@ -37,7 +37,9 @@ SERVER $LM_HOST_NAME $LM_HOST_ID $LM_HOST_PORT
 USE_SERVER
 EOF
 
-cid=$(docker run -d -v "$license_dat:$license_dat" -v "$extract_dir:$extract_dir:ro" -v install.sh:/bin/install.sh "$image_name" ${install_cmd})
+cid=$(docker run -d -v "$license_dat:$license_dat" -v "$extract_dir:$extract_dir:ro" "$image_name" ${install_cmd})
 docker logs -f "$cid"
-#docker commit "$cid" matlab:compiler
+docker commit "$cid" matlab:compiler
+
+# todo;; test
 #matlab -nosplash -nojvm -nodesktop -nodisplay -r "version, exit"
