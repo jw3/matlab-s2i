@@ -13,7 +13,7 @@ if [ -z "${LM_HOST_NAME}" ]; then LM_HOST_NAME="$HOSTNAME"; fi
 if [ -z "${LM_HOST_PORT}" ]; then LM_HOST_PORT=27000; fi
 
 if [ -z "${FIK}" ]; then echo "FIK was not specified"; exit 1; fi
-readonly install_cmd="$extract_dir/install -mode silent -agreeToLicense yes -fileInstallationKey $FIK -licensePath $license_dat -inputFile $installer_conf"
+readonly install_cmd="$extract_dir/install -mode silent -agreeToLicense yes -fileInstallationKey $FIK -licensePath $license_dat -destinationFolder /usr/local/matlab -inputFile $installer_conf"
 
 echo "Installing MATLAB from source in $ML_ISO_DIR"
 ls -d ${ML_ISO_DIR}/*.iso
