@@ -40,6 +40,7 @@ EOF
 cid=$(docker run -d -v "$license_dat:$license_dat" -v "$extract_dir:$extract_dir:ro" "$image_name" ${install_cmd})
 docker logs -f "$cid"
 docker commit "$cid" matlab:compiler
+docker rm "$cid"
 
 # todo;; test
 #matlab -nosplash -nojvm -nodesktop -nodisplay -r "version, exit"
