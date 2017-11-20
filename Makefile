@@ -4,6 +4,7 @@ IMAGE_NAME = matlab-s2i
 .PHONY: build
 build:
 	docker build -t $(IMAGE_NAME) .
+	./install.sh $(IMAGE_NAME)
 
 .PHONY: test
 test:
