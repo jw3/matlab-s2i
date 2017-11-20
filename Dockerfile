@@ -14,7 +14,8 @@ RUN yum install -y nano xauth libxt6 \
 
 COPY ./s2i/bin/ /usr/libexec/s2i
 
-RUN chown -R 1001:1001 /opt/app-root
+RUN mkdir /usr/local/MATLAB \
+ && chown -R 1001:1001 /usr/local/MATLAB
 
 USER 1001
 
