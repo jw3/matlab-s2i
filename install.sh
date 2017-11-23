@@ -3,7 +3,7 @@
 readonly image_name="$1"
 readonly t=$(date +%s)
 readonly mnt_dir="/tmp/matlab_iso_$t"
-readonly extract_dir=/tmp/matlab_iso
+readonly extract_dir="${EXTRACT_DIR:-/tmp/matlab_iso}"
 readonly license_dat=/tmp/MATLAB.dat
 readonly installer_conf="$extract_dir/installer.conf"
 
