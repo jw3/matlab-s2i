@@ -9,7 +9,7 @@ LABEL io.k8s.description="Platform for building MATLAB Libraries and Application
       io.k8s.display-name="MATLAB Builder" \
       io.openshift.tags="builder,MATLAB"
 
-RUN yum install -y nano xauth libxt6 \
+RUN yum install -y nano xauth libxt6 redhat-lsb-core \
  && yum clean all -y
 
 COPY ./s2i/bin/ /usr/libexec/s2i
