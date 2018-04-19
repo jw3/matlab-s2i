@@ -13,6 +13,7 @@ RUN yum install -y nano xauth libxt6 redhat-lsb-core \
  && yum clean all -y
 
 COPY ./s2i/bin/ /usr/libexec/s2i
+COPY lmstart.sh /usr/libexec/s2i
 
 RUN mkdir /usr/local/matlab \
  && chown -R 1001:1001 /usr/local/matlab

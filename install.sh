@@ -49,5 +49,9 @@ fi
 
 cid=$(docker run -d -v "$license_dat:$license_dat:ro" -v "$extract_dir:$extract_dir:ro" "$image_name" ${install_cmd})
 docker logs -f "$cid"
-docker commit "$cid" "$image_name"
+
+if [[ "$IS_LM" -eq 1 ]]; then
+     docker commit --change='CMD ["/usr/libexec/s2i/lmstart.sh"]' "$cid" "$image_name"
+else docker commit --change='CMD ["/usr/libexec/s2i/usage"]'  "$cid" "$image_name"; fi
+
 docker rm "$cid"

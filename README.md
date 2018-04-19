@@ -34,3 +34,11 @@ Licenses are never built into the image.  The handling of the license is differe
 ### Products
 
 Products are specified by populating the `products` text file in this directory, see PRODUCTS.md and your license for reference.
+
+### Running
+
+As a license manager
+
+`docker run --rm -it -v /my-license.dat:/license.dat -p 27000:27000 -p 27001:27001 <image-name>`
+
+This depends on MLM being locked to a port, shown here as `27001`.
